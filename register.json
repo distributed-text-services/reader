@@ -1,4 +1,5 @@
-{"endpoints": [
+{
+"endpoints": [
     {
         "endpoint": "http://texts.alpheios.net/api/dts",
         "protocol": "dts",
@@ -20,7 +21,7 @@
         }
     },
     {
-        "endpoint": "http://betamasaheft.eu/api/dts",
+        "endpoint": "https://betamasaheft.eu/api/dts",
         "protocol": "dts",
         "label": "Beta maṣāḥǝft",
         "status": "experimental",
