@@ -27,7 +27,7 @@ var apicall = $(this).val()
         $.getJSON(collection, function (coll) {
             console.log(coll)
             $(coll.member).each(function () {
-                $('#dtsNav').html('<div class="collection w3-container w3-margin" data-source="' + collection + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</div>')
+                $('#dtsNav').append('<div class="collection w3-container w3-margin" data-source="' + collection + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</div>')
             });
         });
     });
