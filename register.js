@@ -4,15 +4,30 @@ $(document).ready(function () {
         $(data.endpoints).each(function (i) {
             var col = this
             var apicall = col.endpoint
-            $.getJSON(apicall, function (data) {
-                console.log(data)
-                var collection = apicall.replace(data['@id'], '')+data.collections
-                  $.getJSON(collection, function (data) {
-                console.log(data)
-                $(data.member).each(function(){
-                    $('#dtsNav').append('<p class="collection w3-container" data-source="' + col + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</p>')
-              });
+            $.getJSON(apicall, function (endpoint) {
+                console.log(endpoint)
+                var collection = apicall.replace(endpoint[ '@id'], '') + endpoint.collections
+                $.getJSON(collection, function (coll) {
+                    console.log(coll)
+                    $(coll.member).each(function () {
+                        $('#dtsNav').append('<div class="collection w3-container w3-margin" data-source="' + collection + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</div>')
+                    });
+                });
             });
+        });
+    });
+});
+
+
+$('#RegisterApi').change(function () {
+var apicall = $(this).val()
+    $.getJSON(apicall, function (endpoint) {
+        console.log(endpoint)
+        var collection = apicall.replace(endpoint[ '@id'], '') + endpoint.collections
+        $.getJSON(collection, function (coll) {
+            console.log(coll)
+            $(coll.member).each(function () {
+                $('#dtsNav').html('<div class="collection w3-container w3-margin" data-source="' + collection + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</div>')
             });
         });
     });
@@ -29,8 +44,8 @@ $('body').on('click', '.collection', function () {
     $.getJSON(apicall, function (data) {
         console.log(data)
         $(data.member).each(function () {
-            thiscol.append('<p class="member" \
-            data-source="' + col + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</p>')
+            thiscol.append('<div class="member w3-container w3-margin" \
+            data-source="' + col + '" data-value="' + this[ '@id'] + '">' + this.title + ' (<span class="label">' + this.totalItems + '</span>): ' + this.description + '</div>')
         });
     });
 });

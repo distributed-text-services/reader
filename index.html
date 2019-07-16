@@ -16,16 +16,14 @@
                     <div class="w3-container w3-margin">
                         <p>Displays texts presented following specifications for the DTS API <a href="https://w3id.org/dts">https://w3id.org/dts</a>
                         </p>    
+                        <p>By default endpoints from <a href="https://github.com/distributed-text-services/reader/blob/master/register.json">this registry</a> are called,
+                        where you can also add your DTS entry point. Alternatively, provide in the input field your entry point.</p>
                     </div>
                 
                 <form class="w3-container w3-margin">
                     <label class="w3-small">Enter your DTS endpoint or select one from the list below</label>
-                    <input name="RegisteredApi" type="text" class="w3-input w3-border"/>
-                    <select name="RegisteredApi" id="RegisteredApi" class="w3-select">
-                        
-                    </select>
-                    <a class="w3-btn" id="submit">Display</a>
-                </form>
+                    <input name="RegisteredApi" id="RegisterApi" type="text" class="w3-input w3-border"/>
+                     </form>
                 
                 <div id="dtsNav"></div>
                 
